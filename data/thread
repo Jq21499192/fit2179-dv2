@@ -1,0 +1,93 @@
+species,common_name,class,status,state,latitude,longitude
+Phascolarctos cinereus,Koala,Mammalia,Vulnerable,Queensland,-27.5,153.0
+Phascolarctos cinereus,Koala,Mammalia,Vulnerable,New South Wales,-33.8,151.2
+Phascolarctos cinereus,Koala,Mammalia,Vulnerable,Australian Capital Territory,-35.3,149.1
+Vombatus ursinus krefftii,Northern Hairy-nosed Wombat,Mammalia,Critically Endangered,Queensland,-24.9,149.7
+Lasiorhinus krefftii,Northern Hairy-nosed Wombat,Mammalia,Critically Endangered,Queensland,-25.1,149.8
+Dasyurus maculatus,Spotted-tail Quoll,Mammalia,Endangered,New South Wales,-34.0,150.5
+Dasyurus maculatus,Spotted-tail Quoll,Mammalia,Endangered,Victoria,-37.5,145.0
+Dasyurus maculatus,Spotted-tail Quoll,Mammalia,Endangered,Tasmania,-42.8,147.3
+Dasyurus hallucatus,Northern Quoll,Mammalia,Endangered,Western Australia,-17.9,122.2
+Dasyurus hallucatus,Northern Quoll,Mammalia,Endangered,Northern Territory,-12.4,130.8
+Dasyurus hallucatus,Northern Quoll,Mammalia,Endangered,Queensland,-16.9,145.7
+Ornithorhynchus anatinus,Platypus,Mammalia,Near Threatened,New South Wales,-33.5,149.5
+Ornithorhynchus anatinus,Platypus,Mammalia,Near Threatened,Victoria,-37.0,144.5
+Ornithorhynchus anatinus,Platypus,Mammalia,Near Threatened,Queensland,-27.0,152.0
+Ornithorhynchus anatinus,Platypus,Mammalia,Near Threatened,Tasmania,-42.5,146.5
+Macrotis lagotis,Greater Bilby,Mammalia,Vulnerable,Western Australia,-25.0,121.0
+Macrotis lagotis,Greater Bilby,Mammalia,Vulnerable,Northern Territory,-20.0,134.0
+Macrotis lagotis,Greater Bilby,Mammalia,Vulnerable,Queensland,-23.5,141.0
+Bettongia penicillata,Brush-tailed Bettong,Mammalia,Critically Endangered,Western Australia,-30.5,116.5
+Bettongia tropica,Northern Bettong,Mammalia,Endangered,Queensland,-17.5,145.5
+Numbat,Numbat,Mammalia,Endangered,Western Australia,-31.5,117.0
+Myrmecobius fasciatus,Numbat,Mammalia,Endangered,Western Australia,-31.0,118.0
+Perameles bougainville,Western Barred Bandicoot,Mammalia,Endangered,Western Australia,-26.0,113.5
+Chaeropus ecaudatus,Pig-footed Bandicoot,Mammalia,Extinct,South Australia,-30.0,136.0
+Thylacinus cynocephalus,Thylacine,Mammalia,Extinct,Tasmania,-42.0,146.0
+Gymnobelideus leadbeateri,Leadbeater's Possum,Mammalia,Critically Endangered,Victoria,-37.5,145.8
+Pseudocheirus occidentalis,Western Ringtail Possum,Mammalia,Critically Endangered,Western Australia,-33.5,115.5
+Petauroides volans,Greater Glider,Mammalia,Endangered,New South Wales,-33.0,150.5
+Petauroides volans,Greater Glider,Mammalia,Endangered,Victoria,-37.0,146.0
+Petauroides volans,Greater Glider,Mammalia,Endangered,Queensland,-25.0,152.0
+Dendrolagus lumholtzi,Lumholtz's Tree-kangaroo,Mammalia,Near Threatened,Queensland,-17.0,145.5
+Lagorchestes hirsutus,Rufous Hare-wallaby,Mammalia,Vulnerable,Western Australia,-22.0,113.8
+Lagostrophus fasciatus,Banded Hare-wallaby,Mammalia,Vulnerable,Western Australia,-25.5,113.5
+Onychogalea fraenata,Bridled Nailtail Wallaby,Mammalia,Endangered,Queensland,-24.5,149.5
+Dromaius novaehollandiae baudinianus,Kangaroo Island Emu,Aves,Extinct,South Australia,-35.8,137.2
+Leipoa ocellata,Malleefowl,Aves,Vulnerable,Western Australia,-30.0,120.0
+Leipoa ocellata,Malleefowl,Aves,Vulnerable,South Australia,-32.0,138.0
+Leipoa ocellata,Malleefowl,Aves,Vulnerable,New South Wales,-33.0,142.0
+Calyptorhynchus banksii graptogyne,South-eastern Red-tailed Black Cockatoo,Aves,Endangered,Victoria,-37.0,141.5
+Calyptorhynchus banksii graptogyne,South-eastern Red-tailed Black Cockatoo,Aves,Endangered,South Australia,-37.5,140.5
+Calyptorhynchus latirostris,Carnaby's Black Cockatoo,Aves,Endangered,Western Australia,-32.0,116.5
+Zanda baudini,Baudin's Black Cockatoo,Aves,Endangered,Western Australia,-34.0,115.5
+Pezoporus occidentalis,Night Parrot,Aves,Endangered,Western Australia,-25.0,122.0
+Pezoporus occidentalis,Night Parrot,Aves,Endangered,Queensland,-24.0,142.0
+Erythrotriorchis radiatus,Red Goshawk,Aves,Vulnerable,Northern Territory,-14.0,132.0
+Erythrotriorchis radiatus,Red Goshawk,Aves,Vulnerable,Queensland,-16.0,145.0
+Turnix melanogaster,Black-breasted Button-quail,Aves,Vulnerable,Queensland,-25.5,152.0
+Rostratula australis,Australian Painted Snipe,Aves,Endangered,New South Wales,-34.0,146.0
+Rostratula australis,Australian Painted Snipe,Aves,Endangered,Victoria,-36.5,144.0
+Epthianura crocea macgregori,Macgregor's Yellow Chat,Aves,Critically Endangered,Queensland,-19.5,139.5
+Amytornis merrotsyi pedleri,Thick-billed Grasswren,Aves,Endangered,South Australia,-32.0,135.0
+Dasyornis broadbenti litoralis,Western Rufous Bristlebird,Aves,Extinct,Western Australia,-34.5,115.0
+Atrichornis clamosus,Noisy Scrub-bird,Aves,Endangered,Western Australia,-35.0,117.5
+Xanthomyza phrygia,Regent Honeyeater,Aves,Critically Endangered,New South Wales,-33.5,149.5
+Xanthomyza phrygia,Regent Honeyeater,Aves,Critically Endangered,Victoria,-36.5,145.5
+Melanodryas cucullata cucullata,Hooded Robin,Aves,Near Threatened,New South Wales,-33.0,148.0
+Stipiturus malachurus intermedius,Southern Emu-wren,Aves,Vulnerable,South Australia,-35.5,138.5
+Myiagra freycineti,Guam Flycatcher,Aves,Extinct,Queensland,-20.0,148.0
+Crinia tinnula,Wallum Froglet,Amphibia,Vulnerable,Queensland,-27.0,153.0
+Litoria aurea,Green and Golden Bell Frog,Amphibia,Vulnerable,New South Wales,-34.0,151.0
+Litoria aurea,Green and Golden Bell Frog,Amphibia,Vulnerable,Victoria,-38.0,145.0
+Litoria raniformis,Southern Bell Frog,Amphibia,Endangered,New South Wales,-35.0,147.0
+Litoria raniformis,Southern Bell Frog,Amphibia,Endangered,Victoria,-37.5,145.0
+Litoria raniformis,Southern Bell Frog,Amphibia,Endangered,South Australia,-35.0,139.0
+Mixophyes iteratus,Giant Barred Frog,Amphibia,Endangered,New South Wales,-32.0,152.0
+Mixophyes iteratus,Giant Barred Frog,Amphibia,Endangered,Queensland,-27.5,152.5
+Rheobatrachus silus,Southern Gastric-brooding Frog,Amphibia,Extinct,Queensland,-27.0,152.0
+Taudactylus acutirostris,Sharp-snouted Day Frog,Amphibia,Extinct,Queensland,-17.5,145.5
+Pseudophryne corroboree,Southern Corroboree Frog,Amphibia,Critically Endangered,New South Wales,-36.5,148.5
+Pseudophryne pengilleyi,Northern Corroboree Frog,Amphibia,Critically Endangered,Australian Capital Territory,-35.5,148.8
+Anaxyrus canorus,Yosemite Toad,Amphibia,Endangered,New South Wales,-35.0,148.0
+Geocrinia alba,White-bellied Frog,Amphibia,Critically Endangered,Western Australia,-34.0,115.5
+Geocrinia vitellina,Orange-bellied Frog,Amphibia,Critically Endangered,Western Australia,-34.2,115.8
+Eulamprus leuraensis,Blue Mountains Water Skink,Reptilia,Endangered,New South Wales,-33.7,150.3
+Bellatorias frerei,Land Mullet,Reptilia,Vulnerable,New South Wales,-32.0,152.5
+Bellatorias frerei,Land Mullet,Reptilia,Vulnerable,Queensland,-28.0,153.0
+Aprasia parapulchella,Pink-tailed Worm-lizard,Reptilia,Vulnerable,New South Wales,-35.5,149.0
+Aprasia parapulchella,Pink-tailed Worm-lizard,Reptilia,Vulnerable,Australian Capital Territory,-35.3,149.1
+Ctenotus alacer,Saltbush Skink,Reptilia,Vulnerable,New South Wales,-33.0,142.0
+Hoplocephalus bungaroides,Broad-headed Snake,Reptilia,Vulnerable,New South Wales,-34.0,150.5
+Macrochelodina siebenrocki,Siebenrock's Snake-necked Turtle,Reptilia,Near Threatened,Queensland,-17.0,141.0
+Pseudonaja mengdeni,Mengden's Brown Snake,Reptilia,Near Threatened,Western Australia,-25.0,120.0
+Nangura spinosa,Nangur Skink,Reptilia,Endangered,Queensland,-26.5,152.5
+Tiliqua adelaidensis,Pygmy Blue-tongue Lizard,Reptilia,Endangered,South Australia,-33.5,138.5
+Neoceratodus forsteri,Australian Lungfish,Actinopterygii,Vulnerable,Queensland,-27.5,152.5
+Maccullochella peelii,Murray Cod,Actinopterygii,Vulnerable,New South Wales,-34.5,144.5
+Maccullochella peelii,Murray Cod,Actinopterygii,Vulnerable,Victoria,-36.0,145.0
+Macquaria australasica,Macquarie Perch,Actinopterygii,Endangered,New South Wales,-35.0,148.5
+Macquaria australasica,Macquarie Perch,Actinopterygii,Endangered,Victoria,-37.0,146.5
+Galaxias rostratus,Flathead Galaxias,Actinopterygii,Endangered,New South Wales,-36.0,147.5
+Prototroctes maraena,Australian Grayling,Actinopterygii,Vulnerable,Victoria,-38.0,146.5
+Prototroctes maraena,Australian Grayling,Actinopterygii,Vulnerable,Tasmania,-42.0,146.0
