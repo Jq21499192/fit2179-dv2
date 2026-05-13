@@ -1,0 +1,20 @@
+year,state,area_hectares,duration_days,cause,fatalities,homes_destroyed,animals_killed_million
+2019,New South Wales,5300000,240,Drought/Lightning,25,2448,1200
+2019,Victoria,1500000,120,Drought/Lightning,3,369,180
+2019,South Australia,280000,60,Lightning,0,87,40
+2019,Queensland,2400000,180,Lightning,0,56,300
+2019,Western Australia,190000,45,Lightning,0,12,20
+2019,Australian Capital Territory,80000,90,Lightning,0,10,15
+2009,Victoria,450000,60,Arson/Wind,173,2029,50
+2003,Australian Capital Territory,160000,20,Lightning,4,488,10
+2003,Victoria,1100000,30,Lightning,0,42,30
+1983,Victoria,210000,1,Wind,47,2545,30
+1974,South Australia,117000,1,Wind,0,0,5
+2013,New South Wales,100000,14,Powerline,0,200,8
+2013,Tasmania,25000,20,Lightning,0,166,5
+2015,South Australia,23000,10,Powerline,2,90,3
+2017,New South Wales,53000,10,Lightning,0,50,4
+2018,Victoria,15000,10,Lightning,0,12,2
+2020,Victoria,1500000,90,Lightning,0,300,120
+2020,Western Australia,87000,14,Lightning,0,0,5
+2022,New South Wales,47000,20,Lightning,0,0,3
