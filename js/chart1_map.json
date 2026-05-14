@@ -43,7 +43,7 @@
                     "name":"status_select",
                     "select":{
                         "type":"point",
-                        "field":[
+                        "fields":[
                             "status"
                         ]
                     },
@@ -58,7 +58,6 @@
                 "latitude":{
                     "field":"latitude",
                     "type":"quantitative"
-
                 },
                 "color":{
                     "field":"status",
@@ -72,12 +71,11 @@
                             "Extinct"
                         ],
                         "range":[
-                            "#c0392b"
-                            "#e67e22"
+                            "#c0392b",
+                            "#e67e22",
                             "#f1c40f",
                             "#2ecc71",
                             "#8e44ad"
-
                         ]
                     },
                     "legend":{
