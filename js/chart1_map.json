@@ -37,9 +37,9 @@
                 }
             },
             "mark":{
-                "type":"circle",
+                "type":"geoshape",
                 "opacity":0.75,
-                "size":55,
+                "size":120,
                 "stroke":"white",
                 "strokeWidth":0.3
             },
@@ -88,15 +88,6 @@
                         "labelColor":"#e8e0d0",
                         "titleColor":"#f39c12"
                     }
-                },
-                "size":{
-                    "field":"status",
-                    "type":"nominal",
-                    "scale":{
-                        "domain":["Critically Endangered", "Endagered", "Vulnerable", "Near THreatened", "Extinct"],
-                        "range":[120,80.60,50,100]
-                    },
-                    "legend": null
                 },
                 "opacity":{
                     "condition":{"param":"status_select", "value": 0.85},
