@@ -26,13 +26,20 @@
         },
         "mark":{
             "type":"geoshape",
-            "fill":"1e3a2a",
+            "fill":"#1e3a2a",
             "stroke":"#4a6741",
             "strokeWidth":0.8
         }
        },
         {
             "data":{"url":"data/threatened_species.csv"},
+            "params":[
+                {
+                    "name":"status_select",
+                    "select":{"type":"point","fields":["status"]},
+                    "bind":"legend"
+                }
+            ],
             "mark":{
                 "type":"circle",
                 "opacity":0.8,
