@@ -28,78 +28,57 @@
         }
     ],
     "layer":[
+       {
+        "data":{
+            "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+            "format":{
+                "type":"topojson",
+                "feature":"countries"
+            }
+        },
+        "mark":{
+            "type":"geoshape",
+            "fill":"1e3a2a",
+            "stroke":"#4a6741",
+            "strokeWidth":0.8
+        }
+       },
         {
-            "data":{
-                "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
-                "format":{
-                    "type":"topojson",
-                    "feature": "countries"
-                }
-            },
+            "data":{"url":"data/threatened_species.csv"},
             "mark":{
-                "type":"geoshape",
-                "opacity":0.75,
-                "size":120,
+                "type":"circle",
+                "opacity":0.8,
+                "size":80,
                 "stroke":"white",
                 "strokeWidth":0.3
             },
-            "params":[
-                {
-                    "name":"status_select",
-                    "select":{
-                        "type":"point",
-                        "fields":[
-                            "status"
-                        ]
-                    },
-                    "bind":"legend"
-                }
-            ],
-            "encoding":{
-                "longitude":{
-                    "field":"longitude",
-                    "type":"quantitative"
-                },
-                "latitude":{
-                    "field":"latitude",
-                    "type":"quantitative"
-                },
+            "encoding": {
+                "longitude":{"field":"longitude","type":"quantitative"},
+                "latitude":{"field":"latitude","type":"quantitative"},
                 "color":{
                     "field":"status",
                     "type":"nominal",
                     "scale":{
-                        "domain":[
-                            "Critically Endangered",
-                            "Endangered",
-                            "Vulnerable",
-                            "Near Threatened",
-                            "Extinct"
-                        ],
-                        "range":[
-                            "#c0392b",
-                            "#e67e22",
-                            "#f1c40f",
-                            "#2ecc71",
-                            "#8e44ad"
-                        ]
+                        "domain":["Critically Endangered","Endangered","Vulnerable","Near Threatened","Extinct"],
+                        "range":["#c0392b","#e67e22","#f1c40f","#2ecc71","#8e44ad"]
                     },
                     "legend":{
                         "title":"Conservation Status",
                         "labelColor":"#e8e0d0",
                         "titleColor":"#f39c12"
                     }
-                },
-                "opacity":{
-                    "condition":{"param":"status_select", "value": 0.85},
-                    "value":0.1
-                },
-                "tooltip":[
-                    {"field":"common_name", "title":"Common Name"},
+            },
+            "opacity":{
+                "condition":{"param":"status_select","value":0.85},
+                "value":0.1
+            },
+            "tooltip":[
+                    {"field":"common_name","title":"Common Name"},
                     {"field":"species","title":"Scientific Name"},
                     {"field":"class","title":"Animal Class"},
                     {"field":"status","title":"Status"},
                     {"field":"state","title":"State"}
-                ]
+                ]    
             }
         }
     ],
