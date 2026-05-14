@@ -57,7 +57,7 @@
                 },
                 "latitude":{
                     "field":"latitude",
-                    "type":"nominal",
+                    "type":"quantitative"
 
                 },
                 "color":{
