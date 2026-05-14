@@ -10,6 +10,11 @@
     },
     "width":"container",
     "height":520,
+    "projection": {
+    "type": "mercator",
+    "center": [134, -28],
+    "scale": 750
+  },
     "params": [
         {
             "name":"status_select",
@@ -107,11 +112,6 @@
             }
         }
     ],
-    "projection":{
-        "type":"mercator",
-        "center":[134, -28],
-        "scale":750
-    },
     "config":{
         "background":"#0d1b2a",
         "view":{"stroke": null}
