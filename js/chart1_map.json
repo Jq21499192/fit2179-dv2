@@ -15,18 +15,6 @@
     "center": [134, -28],
     "scale": 750
   },
-    "params": [
-        {
-            "name":"status_select",
-            "select":{
-                "type":"point",
-                "fields":[
-                    "status"
-                ]
-            },
-            "bind":"legend"
-        }
-    ],
     "layer":[
        {
         "data":{
