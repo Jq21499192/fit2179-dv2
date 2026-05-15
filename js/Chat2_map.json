@@ -1,1 +1,80 @@
-
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Conservation Status Breakdown",
+    "subtitle": "How many species fall into each threat category?",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 400,
+  "data": {"url": "data/threatened_species.csv"},
+  "params": [
+    {
+      "name": "hover",
+      "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
+    }
+  ],
+  "transform": [
+    {"aggregate": [{"op": "count", "as": "count"}], "groupby": ["status"]},
+    {"joinaggregate": [{"op": "sum", "field": "count", "as": "total"}]},
+    {"calculate": "datum.count / datum.total * 100", "as": "percentage"}
+  ],
+  "encoding": {
+    "theta": {"field": "count", "type": "quantitative", "stack": true},
+    "color": {
+      "field": "status",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Extinct"],
+        "range": ["#c0392b", "#e67e22", "#f1c40f", "#2ecc71", "#8e44ad"]
+      },
+      "legend": {
+        "title": "Status",
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 80,
+        "outerRadius": 140,
+        "stroke": "#0d1b2a",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "opacity": {
+          "condition": {"param": "hover", "value": 1, "empty": false},
+          "value": 0.7
+        },
+        "tooltip": [
+          {"field": "status", "title": "Status"},
+          {"field": "count", "title": "Count"},
+          {"field": "percentage", "title": "Percentage (%)", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "radius": 165,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "fill": "#e8e0d0"
+      },
+      "encoding": {
+        "text": {"field": "percentage", "type": "quantitative", "format": ".0f"}
+      }
+    }
+  ],
+  "view": {"stroke": null},
+  "config": {
+    "background": "#1a2a3a"
+  }
+}
