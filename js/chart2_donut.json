@@ -12,17 +12,18 @@
   "width": "container",
   "height": 400,
   "data": {"url": "data/threatened_species.csv"},
-  "params": [
-    {
-      "name": "donut_hover",
-      "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
-    }
-  ],
   "transform": [
     {"aggregate": [{"op": "count", "as": "count"}], "groupby": ["status"]},
     {"joinaggregate": [{"op": "sum", "field": "count", "as": "total"}]},
     {"calculate": "datum.count / datum.total * 100", "as": "percentage"}
   ],
+  "mark": {
+    "type": "arc",
+    "innerRadius": 80,
+    "outerRadius": 140,
+    "stroke": "#0d1b2a",
+    "strokeWidth": 2
+  },
   "encoding": {
     "theta": {"field": "count", "type": "quantitative", "stack": true},
     "color": {
@@ -37,42 +38,13 @@
         "labelColor": "#e8e0d0",
         "titleColor": "#f39c12"
       }
-    }
-  },
-  "layer": [
-    {
-      "mark": {
-        "type": "arc",
-        "innerRadius": 80,
-        "outerRadius": 140,
-        "stroke": "#0d1b2a",
-        "strokeWidth": 2
-      },
-      "encoding": {
-        "opacity": {
-          "condition": {"param": "donut_hover", "value": 1, "empty": false},
-          "value": 0.7
-        },
-        "tooltip": [
-          {"field": "status", "title": "Status"},
-          {"field": "count", "title": "Count"},
-          {"field": "percentage", "title": "Percentage (%)", "format": ".1f"}
-        ]
-      }
     },
-    {
-      "mark": {
-        "type": "text",
-        "radius": 165,
-        "fontSize": 13,
-        "fontWeight": "bold",
-        "fill": "#e8e0d0"
-      },
-      "encoding": {
-        "text": {"field": "percentage", "type": "quantitative", "format": ".0f"}
-      }
-    }
-  ],
+    "tooltip": [
+      {"field": "status", "title": "Status"},
+      {"field": "count", "title": "Count"},
+      {"field": "percentage", "title": "Percentage (%)", "format": ".1f"}
+    ]
+  },
   "view": {"stroke": null},
   "config": {
     "background": "#1a2a3a"
