@@ -94,6 +94,11 @@
     <p>Hover over a dot to see species details. Click the legend to filter by conservation status.</p>
     <div id="chart_map" style="width:100%;"></div>
   </div>
+  <div class="chart-card">
+    <h3>Conservation Status Breakdown</h3>
+    <p>Hover over a segment to highlight it.</p>
+    <div id="chart_donut" style="width:100%;"></div>
+  </div>
 </section>
 
 <footer>
@@ -104,6 +109,7 @@
 
 <script>
   vegaEmbed("#chart_map", "js/chart1_map.json", {actions: false});
+  vegaEmbed("#chart_donut", "js/chart2_donut.json", {actions: false});
 </script>
 
 </body>
