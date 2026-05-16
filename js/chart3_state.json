@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Threatened Species by State / Territory",
+    "subtitle": "Which states have the most threatened species records?",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 400,
+  "data": {"url": "data/threatened_species.csv"},
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4,
+    "stroke": "#0d1b2a",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "State / Territory",
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "labelFontSize": 11
+      }
+    },
+    "x": {
+      "aggregate": "count",
+      "title": "Number of Threatened Species Records",
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "gridColor": "#2c3e50"
+      }
+    },
+    "color": {
+      "field": "status",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Extinct"],
+        "range": ["#c0392b", "#e67e22", "#f1c40f", "#2ecc71", "#8e44ad"]
+      },
+      "legend": {
+        "title": "Status",
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "orient": "top"
+      }
+    },
+    "tooltip": [
+      {"field": "state", "title": "State"},
+      {"field": "status", "title": "Status"},
+      {"aggregate": "count", "title": "Count"}
+    ]
+  },
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
+  }
+}
