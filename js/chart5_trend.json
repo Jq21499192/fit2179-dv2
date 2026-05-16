@@ -1,0 +1,12 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Australia's Bushfire History: A Growing Threat",
+    "subtitle": "Total area burned each year — 2019-2020 stands out as catastrophic",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+}
