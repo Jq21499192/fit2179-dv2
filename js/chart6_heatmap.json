@@ -18,4 +18,39 @@
     "strokeWidth": 2,
     "cornerRadius": 4
   },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "labelAngle": -45
+      }
+    },
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State / Territory",
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12"
+      }
+    },
+    "color": {
+      "field": "animals_killed_million",
+      "type": "quantitative",
+      "title": "Animals Killed (Millions)",
+      "scale": {
+        "scheme": "yelloworangered",
+        "domain": [0, 1200]
+      },
+      "legend": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "orient": "right"
+      }
+    }
+
 }
