@@ -9,4 +9,82 @@
     "subtitleFontSize": 12,
     "anchor": "start"
   },
+  "width": "container",
+  "height": 400,
+  "data": {"url": "data/bushfire.csv"},
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "color": {
+          "x1": 1, "y1": 1, "x2": 1, "y2": 0,
+          "gradient": "linear",
+          "stops": [
+            {"offset": 0, "color": "#0d1b2a"},
+            {"offset": 1, "color": "#e74c3c"}
+          ]
+        },
+        "opacity": 0.4,
+        "line": {"color": "#e74c3c", "strokeWidth": 3}
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "temporal",
+          "title": "Year",
+          "axis": {
+            "labelColor": "#e8e0d0",
+            "titleColor": "#f39c12",
+            "gridColor": "#2c3e50"
+          }
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "area_hectares",
+          "title": "Total Area Burned (hectares)",
+          "axis": {
+            "labelColor": "#e8e0d0",
+            "titleColor": "#f39c12",
+            "gridColor": "#2c3e50"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 100,
+        "color": "#f39c12",
+        "stroke": "#0d1b2a",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "temporal"},
+        "y": {"aggregate": "sum", "field": "area_hectares"},
+        "tooltip": [
+          {"field": "year", "title": "Year"},
+          {"aggregate": "sum", "field": "area_hectares", "title": "Total Hectares", "format": ","}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"year": "2019", "label": "🔥 Black Summer", "y": 9500000}]},
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#e74c3c",
+        "dy": -15
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "temporal"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    }
+  ],
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
+  }
 }
