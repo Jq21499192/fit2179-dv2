@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Bushfire Area Burned by State and Year",
+    "subtitle": "The 2019-2020 Black Summer dwarfs other fire events",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 400,
+  "data": {"url": "data/bushfire.csv"},
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4,
+    "stroke": "#0d1b2a",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "labelAngle": -45
+      }
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "area_hectares",
+      "title": "Total Area Burned (hectares)",
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "gridColor": "#2c3e50"
+      }
+    },
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "scale": {"scheme": "category10"},
+      "legend": {
+        "title": "State",
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "orient": "top"
+      }
+    },
+    "tooltip": [
+      {"field": "year", "title": "Year"},
+      {"field": "state", "title": "State"},
+      {"field": "area_hectares", "title": "Hectares", "format": ","},
+      {"field": "cause", "title": "Cause"}
+    ]
+  },
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
+  }
+}
