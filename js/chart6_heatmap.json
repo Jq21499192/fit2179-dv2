@@ -51,6 +51,18 @@
         "titleColor": "#f39c12",
         "orient": "right"
       }
-    }
+    },
+    "tooltip": [
+      {"field": "state", "title": "State"},
+      {"field": "year", "title": "Year"},
+      {"field": "animals_killed_million", "title": "Animals Killed (M)"},
+      {"field": "area_hectares", "title": "Area Burned (ha)", "format": ","},
+      {"field": "cause", "title": "Cause"}
+    ]
+  },
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
+  }
 
 }
