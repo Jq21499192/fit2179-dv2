@@ -121,6 +121,11 @@
   <p>The colour intensity reveals where wildlife suffered the most. Hover for details.</p>
   <div id="chart_heatmap" style="width:100%;"></div>
 </div>
+<div class="chart-card">
+  <h3>Animal Class vs Conservation Status</h3>
+  <p>Larger bubbles mean more species in that category. Mammals dominate the at-risk groups.</p>
+  <div id="chart_class" style="width:100%;"></div>
+</div>
 
 </section>
 
@@ -137,6 +142,7 @@
   vegaEmbed("#chart_fire_state", "js/chart4_fire_state.json", {actions: false});
   vegaEmbed("#chart_trend", "js/chart5_trend.json", {actions: false});
   vegaEmbed("#chart_heatmap", "js/chart6_heatmap.json", {actions: false});
+  vegaEmbed("#chart_class", "js/chart7_class.json", {actions: false});
 </script>
 
 </body>
