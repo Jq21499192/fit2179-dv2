@@ -20,6 +20,57 @@
     "opacity": 0.85,
     "stroke": "#0d1b2a",
     "strokeWidth": 1.5
+  },
+  "encoding": {
+    "x": {
+      "field": "class",
+      "type": "nominal",
+      "title": "Animal Class",
+      "sort": ["Mammalia", "Aves", "Reptilia", "Amphibia", "Actinopterygii"],
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "status",
+      "type": "nominal",
+      "title": "Conservation Status",
+      "sort": ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Extinct"],
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12"
+      }
+    },
+    "size": {
+      "field": "count",
+      "type": "quantitative",
+      "title": "Number of Species",
+      "scale": {"range": [100, 2000]},
+      "legend": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12"
+      }
+    },
+    "color": {
+      "field": "status",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Extinct"],
+        "range": ["#c0392b", "#e67e22", "#f1c40f", "#2ecc71", "#8e44ad"]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "class", "title": "Class"},
+      {"field": "status", "title": "Status"},
+      {"field": "count", "title": "Count"}
+    ]
+  },
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
   }
   
 }
