@@ -92,10 +92,10 @@
           "value": 0.3
         },
         "tooltip": [
-          {"field": "common_name", "title": "Species"},
-          {"field": "class", "title": "Animal Class"},
-          {"field": "status", "title": "Status"},
-          {"field": "records", "title": "Records"}
+          {"field": "common_name","type":"nominal", "title": "Species"},
+          {"field": "class", "type": "nominal","title": "Animal Class"},
+          {"field": "status", "type":"nominal", "title": "Status"},
+          {"field": "records", "type":"quantitative", "title": "Records"}
         ]
       }
     }
