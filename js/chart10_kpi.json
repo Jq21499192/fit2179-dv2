@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "The Devastating Toll of Black Summer 2019-2020",
+    "subtitle": "Key statistics from Australia's worst bushfire season",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 320,
+  "data": {
+    "values": [
+      {"metric": "Hectares Burned", "value": 12.6, "unit": "M ha", "x": 1, "y": 1, "color": "#e74c3c"},
+      {"metric": "Animals Killed", "value": 3, "unit": "Billion", "x": 2, "y": 1, "color": "#e67e22"},
+      {"metric": "Homes Destroyed", "value": 3094, "unit": "homes", "x": 3, "y": 1, "color": "#f39c12"},
+      {"metric": "Lives Lost", "value": 33, "unit": "people", "x": 1, "y": 0, "color": "#c0392b"},
+      {"metric": "Species at Risk", "value": 119, "unit": "species", "x": 2, "y": 0, "color": "#8e44ad"},
+      {"metric": "Days of Fire", "value": 240, "unit": "days", "x": 3, "y": 0, "color": "#2ecc71"}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "size": 18000,
+        "opacity": 0.15,
+        "stroke": "#f39c12",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "ordinal", "axis": null, "scale": {"padding": 0.5}},
+        "y": {"field": "y", "type": "ordinal", "axis": null, "scale": {"padding": 0.5}},
+        "color": {"field": "color", "type": "nominal", "scale": null}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 42,
+        "fontWeight": "bold",
+        "dy": -20,
+        "fill": "#f39c12"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "ordinal", "axis": null},
+        "y": {"field": "y", "type": "ordinal", "axis": null},
+        "text": {"field": "value"}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "dy": 15,
+        "fill": "#bdc3c7"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "ordinal", "axis": null},
+        "y": {"field": "y", "type": "ordinal", "axis": null},
+        "text": {"field": "unit"}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "dy": 45,
+        "fill": "#e8e0d0",
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "ordinal", "axis": null},
+        "y": {"field": "y", "type": "ordinal", "axis": null},
+        "text": {"field": "metric"}
+      }
+    }
+  ],
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
+  }
+}
