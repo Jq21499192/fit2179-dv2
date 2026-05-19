@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "What Starts These Fires?",
+    "subtitle": "Major causes of Australian bushfires and the lives they have taken",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 350,
+  "data": {"url": "data/bushfire.csv"},
+  "transform": [
+    {"aggregate": [
+      {"op": "count", "as": "fire_count"},
+      {"op": "sum", "field": "fatalities", "as": "total_fatalities"},
+      {"op": "sum", "field": "homes_destroyed", "as": "total_homes"}
+    ], "groupby": ["cause"]}
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 6,
+    "stroke": "#0d1b2a",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "y": {
+      "field": "cause",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "Cause of Fire",
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "labelFontSize": 12
+      }
+    }
+}
