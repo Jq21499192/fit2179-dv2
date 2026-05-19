@@ -16,12 +16,6 @@
     {"filter": "datum.status == 'Critically Endangered' || datum.status == 'Endangered' || datum.status == 'Extinct'"},
     {"aggregate": [{"op": "count", "as": "records"}], "groupby": ["common_name", "status", "class"]}
   ],
-  "params": [
-    {
-      "name": "species_click",
-      "select": {"type": "point", "fields": ["common_name"]}
-    }
-  ],
   "mark": {
     "type": "bar",
     "cornerRadiusEnd": 4,
@@ -62,10 +56,6 @@
         "titleColor": "#f39c12",
         "orient": "top"
       }
-    },
-    "opacity": {
-      "condition": {"param": "species_click", "value": 1, "empty": true},
-      "value": 0.3
     },
     "tooltip": [
       {"field": "common_name", "title": "Species"},
