@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Fire Size vs Wildlife Casualties",
+    "subtitle": "Each dot is a fire event — bigger fires mean more animals lost",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 400,
+  "data": {"url": "data/bushfire.csv"},
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "size": 200,
+        "opacity": 0.8,
+        "stroke": "#0d1b2a",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "area_hectares",
+          "type": "quantitative",
+          "title": "Area Burned (hectares)",
+          "scale": {"type": "log"},
+          "axis": {
+            "labelColor": "#e8e0d0",
+            "titleColor": "#f39c12",
+            "gridColor": "#2c3e50"
+          }
+        },
+        "y": {
+          "field": "animals_killed_million",
+          "type": "quantitative",
+          "title": "Animals Killed (Millions)",
+          "axis": {
+            "labelColor": "#e8e0d0",
+            "titleColor": "#f39c12",
+            "gridColor": "#2c3e50"
+          }
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {"scheme": "category10"},
+          "legend": {
+            "title": "State",
+            "labelColor": "#e8e0d0",
+            "titleColor": "#f39c12",
+            "orient": "right"
+          }
+        },
+        "tooltip": [
+          {"field": "state", "title": "State"},
+          {"field": "year", "title": "Year"},
+          {"field": "area_hectares", "title": "Hectares", "format": ","},
+          {"field": "animals_killed_million", "title": "Animals (M)"},
+          {"field": "cause", "title": "Cause"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#f39c12",
+        "strokeDash": [6, 4],
+        "strokeWidth": 2,
+        "opacity": 0.8
+      },
+      "transform": [
+        {"regression": "animals_killed_million", "on": "area_hectares"}
+      ],
+      "encoding": {
+        "x": {"field": "area_hectares", "type": "quantitative"},
+        "y": {"field": "animals_killed_million", "type": "quantitative"}
+      }
+    }
+  ],
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
+  }
+}
