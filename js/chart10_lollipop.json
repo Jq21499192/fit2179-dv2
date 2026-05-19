@@ -25,32 +25,10 @@
   "layer": [
     {
       "mark": {
-        "type": "rule",
-        "color": "#4a6741",
-        "strokeWidth": 2,
-        "opacity": 0.5
-      },
-      "encoding": {
-        "y": {
-          "field": "common_name",
-          "type": "nominal",
-          "sort": {"field": "records", "order": "descending"},
-          "title": null,
-          "axis": {
-            "labelColor": "#e8e0d0",
-            "labelFontSize": 10
-          }
-        },
-        "x": {"datum": 0, "type": "quantitative"},
-        "x2": {"field": "records"}
-      }
-    },
-    {
-      "mark": {
-        "type": "bar",
-        "size": 3,
-        "color": "#4a6741",
-        "opacity": 0.6
+        "type": "circle",
+        "size": 250,
+        "stroke":"#0d1b2a",
+        "strokeWidth":2
       },
       "encoding": {
         "y": {
