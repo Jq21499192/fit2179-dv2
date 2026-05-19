@@ -47,16 +47,21 @@
     },
     {
       "mark": {
-        "type": "circle",
-        "size": 250,
-        "stroke": "#0d1b2a",
-        "strokeWidth": 2
+        "type": "bar",
+        "size": 3,
+        "color": "#4a6741",
+        "opacity": 0.6
       },
       "encoding": {
         "y": {
           "field": "common_name",
           "type": "nominal",
-          "sort": {"field": "records", "order": "descending"}
+          "sort": {"field": "records", "order": "descending"},
+          "title":null,
+          "axis":{
+            "labelColor":"#e8e0d0",
+            "labelFontSize":10
+          }
         },
         "x": {
           "field": "records",
