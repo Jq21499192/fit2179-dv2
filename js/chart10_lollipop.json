@@ -41,7 +41,7 @@
             "labelFontSize": 10
           }
         },
-        "x": {"value": 0},
+        "x": {"datum": 0, "type": "quantitative"},
         "x2": {"field": "records"}
       }
     },
