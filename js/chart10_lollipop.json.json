@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "The Most At-Risk Australian Animals",
+    "subtitle": "Each species shown by conservation status. Click a dot to highlight.",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 500,
+  "data": {"url": "data/threatened_species.csv"},
+  "transform": [
+    {"filter": "datum.status == 'Critically Endangered' || datum.status == 'Endangered' || datum.status == 'Extinct'"},
+    {"aggregate": [{"op": "count", "as": "records"}], "groupby": ["common_name", "status", "class"]}
+  ],
+  "params": [
+    {
+      "name": "species_click",
+      "select": {"type": "point", "fields": ["common_name"]}
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "common_name",
+      "type": "nominal",
+      "sort": {"field": "records", "order": "descending"},
+      "title": null,
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "labelFontSize": 10
+      }
+    },
+    "x": {
+      "field": "records",
+      "type": "quantitative",
+      "title": "Number of Recorded Locations",
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "gridColor": "#2c3e50"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#4a6741",
+        "strokeWidth": 2,
+        "opacity": 0.5
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 250,
+        "stroke": "#0d1b2a",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Critically Endangered", "Endangered", "Extinct"],
+            "range": ["#c0392b", "#e67e22", "#8e44ad"]
+          },
+          "legend": {
+            "title": "Status",
+            "labelColor": "#e8e0d0",
+            "titleColor": "#f39c12",
+            "orient": "top"
+          }
+        },
+        "opacity": {
+          "condition": {"param": "species_click", "value": 1, "empty": true},
+          "value": 0.3
+        },
+        "tooltip": [
+          {"field": "common_name", "title": "Species"},
+          {"field": "class", "title": "Animal Class"},
+          {"field": "status", "title": "Status"},
+          {"field": "records", "title": "Records"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
+  }
+}
