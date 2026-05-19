@@ -36,5 +36,36 @@
         "titleColor": "#f39c12",
         "labelFontSize": 12
       }
-    }
+    },
+    "x": {
+      "field": "fire_count",
+      "type": "quantitative",
+      "title": "Number of Major Fire Events",
+      "axis": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12",
+        "gridColor": "#2c3e50"
+      }
+    },
+    "color": {
+      "field": "total_fatalities",
+      "type": "quantitative",
+      "title": "Total Fatalities",
+      "scale": {"scheme": "reds"},
+      "legend": {
+        "labelColor": "#e8e0d0",
+        "titleColor": "#f39c12"
+      }
+    },
+    "tooltip": [
+      {"field": "cause", "title": "Cause"},
+      {"field": "fire_count", "title": "Number of Fires"},
+      {"field": "total_fatalities", "title": "Total Fatalities"},
+      {"field": "total_homes", "title": "Homes Destroyed"}
+    ]
+  },
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
+  }
 }
