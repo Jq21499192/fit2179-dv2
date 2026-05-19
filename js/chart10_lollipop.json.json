@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "The Devastating Toll of Black Summer 2019-2020",
-    "subtitle": "Key statistics from Australia's worst bushfire season",
+    "text": "The Most At-Risk Australian Animals",
+    "subtitle": "Each species shown by conservation status. Click a bar to highlight.",
     "color": "#f39c12",
     "subtitleColor": "#bdc3c7",
     "fontSize": 16,
@@ -10,71 +10,88 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 320,
-  "data": {
-    "values": [
-      {"metric": "Hectares Burned", "value": 12.6, "unit": "M ha", "x": 1, "y": 1, "color": "#e74c3c"},
-      {"metric": "Animals Killed", "value": 3, "unit": "Billion", "x": 2, "y": 1, "color": "#e67e22"},
-      {"metric": "Homes Destroyed", "value": 3094, "unit": "homes", "x": 3, "y": 1, "color": "#f39c12"},
-      {"metric": "Lives Lost", "value": 33, "unit": "people", "x": 1, "y": 0, "color": "#c0392b"},
-      {"metric": "Species at Risk", "value": 119, "unit": "species", "x": 2, "y": 0, "color": "#8e44ad"},
-      {"metric": "Days of Fire", "value": 240, "unit": "days", "x": 3, "y": 0, "color": "#2ecc71"}
-    ]
-  },
+  "height": 500,
+  "data": {"url": "data/threatened_species.csv"},
+  "transform": [
+    {"filter": "datum.status == 'Critically Endangered' || datum.status == 'Endangered' || datum.status == 'Extinct'"},
+    {"aggregate": [{"op": "count", "as": "records"}], "groupby": ["common_name", "status", "class"]}
+  ],
+  "params": [
+    {
+      "name": "species_click",
+      "select": {"type": "point", "fields": ["common_name"]}
+    }
+  ],
   "layer": [
     {
       "mark": {
+        "type": "rule",
+        "color": "#4a6741",
+        "strokeWidth": 2,
+        "opacity": 0.5
+      },
+      "encoding": {
+        "y": {
+          "field": "common_name",
+          "type": "nominal",
+          "sort": {"field": "records", "order": "descending"},
+          "title": null,
+          "axis": {
+            "labelColor": "#e8e0d0",
+            "labelFontSize": 10
+          }
+        },
+        "x": {"value": 0},
+        "x2": {"field": "records"}
+      }
+    },
+    {
+      "mark": {
         "type": "circle",
-        "size": 18000,
-        "opacity": 0.15,
-        "stroke": "#f39c12",
-        "strokeWidth": 1
+        "size": 250,
+        "stroke": "#0d1b2a",
+        "strokeWidth": 2
       },
       "encoding": {
-        "x": {"field": "x", "type": "ordinal", "axis": null, "scale": {"padding": 0.5}},
-        "y": {"field": "y", "type": "ordinal", "axis": null, "scale": {"padding": 0.5}},
-        "color": {"field": "color", "type": "nominal", "scale": null}
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 42,
-        "fontWeight": "bold",
-        "dy": -20,
-        "fill": "#f39c12"
-      },
-      "encoding": {
-        "x": {"field": "x", "type": "ordinal", "axis": null},
-        "y": {"field": "y", "type": "ordinal", "axis": null},
-        "text": {"field": "value"}
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 14,
-        "dy": 15,
-        "fill": "#bdc3c7"
-      },
-      "encoding": {
-        "x": {"field": "x", "type": "ordinal", "axis": null},
-        "y": {"field": "y", "type": "ordinal", "axis": null},
-        "text": {"field": "unit"}
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 13,
-        "dy": 45,
-        "fill": "#e8e0d0",
-        "fontWeight": "bold"
-      },
-      "encoding": {
-        "x": {"field": "x", "type": "ordinal", "axis": null},
-        "y": {"field": "y", "type": "ordinal", "axis": null},
-        "text": {"field": "metric"}
+        "y": {
+          "field": "common_name",
+          "type": "nominal",
+          "sort": {"field": "records", "order": "descending"}
+        },
+        "x": {
+          "field": "records",
+          "type": "quantitative",
+          "title": "Number of Recorded Locations",
+          "axis": {
+            "labelColor": "#e8e0d0",
+            "titleColor": "#f39c12",
+            "gridColor": "#2c3e50"
+          }
+        },
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Critically Endangered", "Endangered", "Extinct"],
+            "range": ["#c0392b", "#e67e22", "#8e44ad"]
+          },
+          "legend": {
+            "title": "Status",
+            "labelColor": "#e8e0d0",
+            "titleColor": "#f39c12",
+            "orient": "top"
+          }
+        },
+        "opacity": {
+          "condition": {"param": "species_click", "value": 1, "empty": true},
+          "value": 0.3
+        },
+        "tooltip": [
+          {"field": "common_name", "title": "Species"},
+          {"field": "class", "title": "Animal Class"},
+          {"field": "status", "title": "Status"},
+          {"field": "records", "title": "Records"}
+        ]
       }
     }
   ],
