@@ -48,23 +48,21 @@
         "titleColor": "#f39c12"
       }
     },
-    "color": {
-      "condition": {
-      "test": "datum.animals_killed_million == 0",
-      "value": "#ffffff"
-    },
+  "color": {
     "field": "animals_killed_million",
     "type": "quantitative",
     "title": "Animals Killed (Millions)",
     "scale": {
-     "type": "threshold",
-     "domain": [10, 50, 200, 500],
-     "range": ["#fde68a", "#f1c40f", "#e67e22", "#e74c3c", "#c0392b"]
-    },
-    "legend": {
-     "labelColor": "#e8e0d0",
-     "titleColor": "#f39c12",
-     "orient": "right"
+    "type": "threshold",
+    "domain": [0.1, 10, 200, 500],
+    "range": ["#d2d3b4", "#fde68a", "#e67e22", "#e74c3c", "#c0392b"]
+  },
+  "legend": {
+    "labelColor": "#e8e0d0",
+    "titleColor": "#f39c12",
+    "orient": "right",
+    "values": [0, 10, 200, 500],
+    "labelExpr": "datum.value == 0 ? '0' : datum.label"
   }
 },
     "tooltip": [
