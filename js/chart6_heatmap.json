@@ -24,7 +24,7 @@
   ],
   "mark": {
     "type": "rect",
-    "stroke": "#e9ecc3",
+    "stroke":"#0d1b2a",
     "strokeWidth": 2,
     "cornerRadius": 4
   },
@@ -49,20 +49,24 @@
       }
     },
     "color": {
-      "field": "animals_killed_million",
-      "type": "quantitative",
-      "title": "Animals Killed (Millions)",
-      "scale": {
-        "type": "threshold",
-        "domain": [1, 10, 50, 200, 500],
-        "range": ["#2c3e50", "#fde68a", "#f1c40f", "#e67e22", "#e74c3c", "#c0392b"]
-      },
-      "legend": {
-        "labelColor": "#e8e0d0",
-        "titleColor": "#f39c12",
-        "orient": "right"
-      }
+      "condition": {
+      "test": "datum.animals_killed_million == 0",
+      "value": "#ffffff"
     },
+    "field": "animals_killed_million",
+    "type": "quantitative",
+    "title": "Animals Killed (Millions)",
+    "scale": {
+     "type": "threshold",
+     "domain": [10, 50, 200, 500],
+     "range": ["#fde68a", "#f1c40f", "#e67e22", "#e74c3c", "#c0392b"]
+    },
+    "legend": {
+     "labelColor": "#e8e0d0",
+     "titleColor": "#f39c12",
+     "orient": "right"
+  }
+},
     "tooltip": [
       {
         "field": "state",
