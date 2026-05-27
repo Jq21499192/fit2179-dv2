@@ -11,7 +11,17 @@
   },
   "width": "container",
   "height": 350,
-  "data": {"url": "data/bushfire.csv"},
+  "data": {
+    "url": "data/bushfire.csv"
+  },
+  "transform": [
+    {
+      "impute": "animals_killed_million",
+      "key": "year",
+      "groupby": ["state"],
+      "value": 0
+    }
+  ],
   "mark": {
     "type": "rect",
     "stroke": "#0d1b2a",
@@ -44,8 +54,8 @@
       "title": "Animals Killed (Millions)",
       "scale": {
         "type": "threshold",
-        "domain": [10, 50, 200, 500],
-        "range": ["#fde68a", "#f1c40f", "#e67e22", "#e74c3c", "#c0392b"] 
+        "domain": [1, 10, 50, 200, 500],
+        "range": ["#2c3e50", "#fde68a", "#f1c40f", "#e67e22", "#e74c3c", "#c0392b"]
       },
       "legend": {
         "labelColor": "#e8e0d0",
@@ -54,16 +64,38 @@
       }
     },
     "tooltip": [
-      {"field": "state", "title": "State"},
-      {"field": "year", "title": "Year"},
-      {"field": "animals_killed_million", "title": "Animals Killed (M)"},
-      {"field": "area_hectares", "title": "Area Burned (ha)", "format": ","},
-      {"field": "cause", "title": "Cause"}
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "animals_killed_million",
+        "type": "quantitative",
+        "title": "Animals Killed (M)"
+      },
+      {
+        "field": "area_hectares",
+        "type": "quantitative",
+        "title": "Area Burned (ha)",
+        "format": ","
+      },
+      {
+        "field": "cause",
+        "type": "nominal",
+        "title": "Cause"
+      }
     ]
   },
   "config": {
     "background": "#1a2a3a",
-    "view": {"stroke": null}
+    "view": {
+      "stroke": null
+    }
   }
-
 }
