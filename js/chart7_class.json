@@ -13,8 +13,22 @@
   "height": 380,
   "data": {"url": "data/threatened_species.csv"},
   "transform": [
-    {"aggregate": [{"op": "count", "as": "count"}], "groupby": ["class", "status"]}
-  ],
+  {
+    "aggregate": [
+      {
+        "op": "count",
+        "as": "species_count"
+      }
+    ],
+    "groupby": ["class", "status"]
+  },
+  {
+    "impute": "species_count",
+    "key": "class",
+    "groupby": ["status"],
+    "value": 0
+  }
+],
   "mark": {
     "type": "circle",
     "opacity": 0.85,
@@ -44,24 +58,51 @@
       }
     },
     "size": {
-      "field": "count",
-      "type": "quantitative",
-      "title": "Number of Species",
-      "scale": {"range": [100, 2000]},
-      "legend": {
-        "labelColor": "#e8e0d0",
-        "titleColor": "#f39c12"
-      }
-    },
-    "color": {
-      "field": "status",
-      "type": "nominal",
-      "scale": {
-        "domain": ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Extinct"],
-        "range": ["#c0392b", "#e67e22", "#f1c40f", "#2ecc71", "#8e44ad"]
-      },
-      "legend": null
-    },
+  "condition": {
+    "test": "datum.species_count == 0",
+    "value": 80
+  },
+  "field": "species_count",
+  "type": "quantitative",
+  "title": "Number of Species",
+  "scale": {
+    "domain": [0, 14],
+    "range": [80, 1800]
+  },
+  "legend": {
+    "labelColor": "#e8e0d0",
+    "titleColor": "#f39c12",
+    "symbolFill": "#ffffff",
+    "symbolStroke": "#e8e0d0",
+    "symbolStrokeWidth": 1.5,
+    "values": [0, 2, 4, 6, 8, 10, 12, 14]
+  }
+},
+"color": {
+  "condition": {
+    "test": "datum.species_count == 0",
+    "value": "#ffffff"
+  },
+  "field": "status",
+  "type": "nominal",
+  "scale": {
+    "domain": [
+      "Critically Endangered",
+      "Endangered",
+      "Vulnerable",
+      "Near Threatened",
+      "Extinct"
+    ],
+    "range": [
+      "#c0392b",
+      "#e67e22",
+      "#f1c40f",
+      "#2ecc71",
+      "#8e44ad"
+    ]
+  },
+  "legend": null
+},
     "tooltip": [
       {"field": "class", "title": "Class"},
       {"field": "status", "title": "Status"},
