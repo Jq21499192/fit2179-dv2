@@ -43,8 +43,9 @@
       "type": "quantitative",
       "title": "Animals Killed (Millions)",
       "scale": {
-        "type":"log",
-        "scheme":"yelloworangered"
+        "type": "threshold",
+        "domain": [10, 50, 200, 500],
+        "range": ["#fde68a", "#f1c40f", "#e67e22", "#e74c3c", "#c0392b"] 
       },
       "legend": {
         "labelColor": "#e8e0d0",
