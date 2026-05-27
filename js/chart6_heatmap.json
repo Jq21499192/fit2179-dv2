@@ -93,7 +93,7 @@
     ]
   },
   "config": {
-    "background": "#fbf8cf",
+    "background":"#1a2a3a",
     "view": {
       "stroke": null
     }
