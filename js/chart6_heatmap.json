@@ -43,8 +43,8 @@
       "type": "quantitative",
       "title": "Animals Killed (Millions)",
       "scale": {
-        "scheme": "yelloworangered",
-        "domain": [0, 1200]
+        "type":"log",
+        "scheme":"yelloworangered"
       },
       "legend": {
         "labelColor": "#e8e0d0",
