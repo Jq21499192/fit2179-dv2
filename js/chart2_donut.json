@@ -29,7 +29,7 @@
   ],
   "params": [
     {
-      "name": "status_hover",
+      "name": "donut_status_hover",
       "select": {
         "type": "point",
         "fields": ["status"],
@@ -68,7 +68,7 @@
           }
         },
         "opacity": {
-          "condition": {"param": "status_hover", "value": 1, "empty": true},
+          "condition": {"param": "donut_status_hover", "value": 1, "empty": true},
           "value": 0.35
         },
         "tooltip": [
