@@ -10,64 +10,90 @@
     "anchor": "middle"
   },
   "width": "container",
-  "height": 420,
-  "data": {"url": "data/threatened_species.csv"},
+  "height": 360,
+  "data": {
+    "url": "data/threatened_species.csv"
+  },
   "transform": [
-    {"aggregate": [{"op": "count", "as": "count"}], "groupby": ["status"]},
-    {"joinaggregate": [{"op": "sum", "field": "count", "as": "total"}]},
-    {"calculate": "datum.count / datum.total * 100", "as": "percentage"}
+    {
+      "aggregate": [{"op": "count", "as": "species_count"}],
+      "groupby": ["status"]
+    },
+    {
+      "joinaggregate": [{"op": "sum", "field": "species_count", "as": "total_count"}]
+    },
+    {
+      "calculate": "datum.species_count / datum.total_count",
+      "as": "percentage"
+    }
   ],
-  "encoding": {
-    "theta": {"field": "count", "type": "quantitative", "stack": true},
-    "color": {
-      "field": "status",
-      "type": "nominal",
-      "scale": {
-        "domain": ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Extinct"],
-        "range": ["#c0392b", "#e67e22", "#f1c40f", "#2ecc71", "#8e44ad"]
-      },
-      "legend": {
-        "title": "Conservation Status",
-        "labelColor": "#e8e0d0",
-        "titleColor": "#f39c12",
-        "labelFontSize": 14,
-        "titleFontSize": 15,
-        "symbolSize": 250,
-        "rowPadding": 10,
-        "orient": "right"
+  "params": [
+    {
+      "name": "status_hover",
+      "select": {
+        "type": "point",
+        "fields": ["status"],
+        "on": "mouseover",
+        "clear": "mouseout"
       }
     }
-  },
+  ],
   "layer": [
     {
       "mark": {
         "type": "arc",
-        "innerRadius": 90,
-        "outerRadius": 160,
-        "stroke": "#0d1b2a",
+        "innerRadius": 80,
+        "outerRadius": 150,
+        "stroke": "#1a2a3a",
         "strokeWidth": 2
       },
       "encoding": {
+        "theta": {"field": "species_count", "type": "quantitative"},
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "title": "Conservation Status",
+          "scale": {
+            "domain": ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Extinct"],
+            "range": ["#c0392b", "#e67e22", "#f1c40f", "#2ecc71", "#8e44ad"]
+          },
+          "legend": {
+            "orient": "right",
+            "labelColor": "#e8e0d0",
+            "titleColor": "#f39c12",
+            "labelFontSize": 13,
+            "titleFontSize": 14,
+            "symbolSize": 200,
+            "rowPadding": 8
+          }
+        },
+        "opacity": {
+          "condition": {"param": "status_hover", "value": 1, "empty": true},
+          "value": 0.35
+        },
         "tooltip": [
-          {"field": "status", "title": "Status"},
-          {"field": "count", "title": "Count"},
-          {"field": "percentage", "title": "Percentage (%)", "format": ".1f"}
+          {"field": "status", "type": "nominal", "title": "Status"},
+          {"field": "species_count", "type": "quantitative", "title": "Number of Species"},
+          {"field": "percentage", "type": "quantitative", "title": "Percentage", "format": ".1%"}
         ]
       }
     },
     {
       "mark": {
         "type": "text",
-        "radius": 125,
+        "radius": 115,
         "fontSize": 14,
         "fontWeight": "bold",
         "fill": "#0d1b2a"
       },
       "encoding": {
-        "text": {"field": "count", "type": "quantitative"}
+        "theta": {"field": "species_count", "type": "quantitative"},
+        "text": {"field": "species_count", "type": "quantitative"}
       }
     }
   ],
-  "view": {"stroke": null},
-  "config": {"background": "#1a2a3a"}
+  "config": {
+    "background": "#1a2a3a",
+    "view": {"stroke": null}
+  }
 }
