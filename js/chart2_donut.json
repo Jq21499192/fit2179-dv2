@@ -1,99 +1,134 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Conservation Status Breakdown",
-    "subtitle": "How many species fall into each threat category?",
-    "color": "#f39c12",
-    "subtitleColor": "#bdc3c7",
-    "fontSize": 18,
-    "subtitleFontSize": 13,
-    "anchor": "middle"
-  },
-  "width": "container",
-  "height": 360,
+
+  "width": 520,
+  "height": 330,
+
   "data": {
     "url": "data/threatened_species.csv"
   },
+
   "transform": [
     {
-      "aggregate": [{"op": "count", "as": "species_count"}],
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "species_count"
+        }
+      ],
       "groupby": ["status"]
     },
     {
-      "joinaggregate": [{"op": "sum", "field": "species_count", "as": "total_count"}]
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "species_count",
+          "as": "total_count"
+        }
+      ]
     },
     {
       "calculate": "datum.species_count / datum.total_count",
       "as": "percentage"
     }
   ],
-  "params": [
-    {
-      "name": "donut_status_hover",
-      "select": {
-        "type": "point",
-        "fields": ["status"],
-        "on": "mouseover",
-        "clear": "mouseout"
-      }
-    }
-  ],
+
   "layer": [
     {
       "mark": {
         "type": "arc",
-        "innerRadius": 80,
-        "outerRadius": 150,
+        "innerRadius": 75,
+        "outerRadius": 140,
         "stroke": "#1a2a3a",
         "strokeWidth": 2
       },
+
       "encoding": {
-        "theta": {"field": "species_count", "type": "quantitative"},
+        "theta": {
+          "field": "species_count",
+          "type": "quantitative"
+        },
+
         "color": {
           "field": "status",
           "type": "nominal",
           "title": "Conservation Status",
+
           "scale": {
-            "domain": ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Extinct"],
-            "range": ["#c0392b", "#e67e22", "#f1c40f", "#2ecc71", "#8e44ad"]
+            "domain": [
+              "Critically Endangered",
+              "Endangered",
+              "Vulnerable",
+              "Near Threatened",
+              "Extinct"
+            ],
+            "range": [
+              "#c0392b",
+              "#e67e22",
+              "#f39c12",
+              "#2ecc71",
+              "#8e44ad"
+            ]
           },
+
           "legend": {
             "orient": "right",
             "labelColor": "#e8e0d0",
             "titleColor": "#f39c12",
-            "labelFontSize": 13,
-            "titleFontSize": 14,
-            "symbolSize": 200,
-            "rowPadding": 8
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "symbolSize": 120
           }
         },
-        "opacity": {
-          "condition": {"param": "donut_status_hover", "value": 1, "empty": true},
-          "value": 0.35
-        },
+
         "tooltip": [
-          {"field": "status", "type": "nominal", "title": "Status"},
-          {"field": "species_count", "type": "quantitative", "title": "Number of Species"},
-          {"field": "percentage", "type": "quantitative", "title": "Percentage", "format": ".1%"}
+          {
+            "field": "status",
+            "type": "nominal",
+            "title": "Status"
+          },
+          {
+            "field": "species_count",
+            "type": "quantitative",
+            "title": "Number of Species"
+          },
+          {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Percentage",
+            "format": ".1%"
+          }
         ]
       }
     },
+
     {
       "mark": {
         "type": "text",
-        "radius": 115,
-        "fontSize": 14,
+        "radius": 110,
+        "fontSize": 12,
         "fontWeight": "bold",
         "fill": "#0d1b2a"
       },
+
       "encoding": {
-        "theta": {"field": "species_count", "type": "quantitative"},
-        "text": {"field": "species_count", "type": "quantitative"}
+        "theta": {
+          "field": "species_count",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "field": "species_count",
+          "type": "quantitative"
+        }
       }
     }
   ],
+
   "config": {
     "background": "#1a2a3a",
-    "view": {"stroke": null}
+    "view": {
+      "stroke": null
+    }
   }
 }
