@@ -2,9 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
   "title": {
-    "text": "Conservation Status Breakdown",
-    "subtitle": "Hover over a segment to highlight it.",
+    "text": "Distribution of threatened species by conservation status.",
     "color": "#f39c12",
+    "subtitle": "Hover over a segment to highlight it.",
     "subtitleColor": "#aab7b8",
     "fontSize": 20,
     "subtitleFontSize": 13,
@@ -48,17 +48,7 @@
     }
   ],
 
-  "params": [
-    {
-      "name": "hover_status",
-      "select": {
-        "type": "point",
-        "fields": ["status"],
-        "on": "mouseover",
-        "clear": "mouseout"
-      }
-    }
-  ],
+  
 
   "layer": [
     {
@@ -79,7 +69,8 @@
 
         "order": {
           "field": "status_order",
-          "type": "quantitative"
+          "type": "quantitative",
+          "sort": "ascending"
         },
 
         "color": {
@@ -112,13 +103,7 @@
           }
         },
 
-        "opacity": {
-          "condition": {
-            "param": "hover_status",
-            "value": 1
-          },
-          "value": 0.75
-        },
+        
 
         "tooltip": [
           {
