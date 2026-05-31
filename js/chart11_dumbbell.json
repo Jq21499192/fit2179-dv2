@@ -11,48 +11,29 @@
   "width": "container",
   "height": 350,
   "data": { "url": "data/bushfire.csv" },
-  "transform": [
-    {
-      "aggregate": [
-        { "op": "min", "field": "animals_killed_million", "as": "min_animals" },
-        { "op": "max", "field": "animals_killed_million", "as": "max_animals" }
-      ],
-      "groupby": ["state"]
-    },
-    { "fold": ["min_animals", "max_animals"], "as": ["type", "value"] },
-    {
-      "calculate": "datum.type === 'min_animals' ? 'Smallest Fire' : 'Largest Fire'",
-      "as": "fire_type"
-    }
-  ],
   "layer": [
     {
-      "mark": { "type": "line", "strokeWidth": 3, "color": "#bdc3c7", "opacity": 0.5 },
+      "transform": [
+        {
+          "aggregate": [
+            { "op": "min", "field": "animals_killed_million", "as": "min_val" },
+            { "op": "max", "field": "animals_killed_million", "as": "max_val" }
+          ],
+          "groupby": ["state"]
+        }
+      ],
+  
+      "mark": { "type": "rule", "strokeWidth": 3, "color": "#bdc3c7", "opacity": 0.6 },
       "encoding": {
         "y": {
           "field": "state",
           "type": "nominal",
-          "sort": "-x"
-        },
-        "x": {
-          "field": "animals_killed_million",
-          "type": "quantitative"
-        },
-        "detail": { "field": "state", "type": "nominal" }
-      }
-    },
-    {
-      "mark": { "type": "point", "filled": true, "size": 120, "strokeWidth": 0 },
-      "encoding": {
-        "y": {
-          "field": "state",
-          "type": "nominal",
-          "sort": { "field": "animals_killed_million", "order": "descending" },
+          "sort": "-x",
           "title": null,
           "axis": { "labelColor": "#e8e0d0", "labelFontSize": 12 }
         },
         "x": {
-          "field": "animals_killed_million",
+          "field": "min_val",
           "type": "quantitative",
           "title": "Animals Killed (millions)",
           "axis": {
@@ -61,23 +42,44 @@
             "gridColor": "#2c3e50"
           }
         },
-        "color": {
-          "field": "year",
-          "type": "nominal",
-          "scale": {
-            "domain": [2009, 2019],
-            "range": ["#2980b9", "#c0392b"]
-          },
-          "legend": {
-            "title": "Year",
-            "labelColor": "#e8e0d0",
-            "titleColor": "#bdc3c7"
-          }
-        },
+        "x2": { "field": "max_val" }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            { "op": "min", "field": "animals_killed_million", "as": "animals_killed_million" }
+          ],
+          "groupby": ["state"]
+        }
+      ],
+      "mark": { "type": "point", "filled": true, "size": 100, "color": "#2980b9" },
+      "encoding": {
+        "y": { "field": "state", "type": "nominal", "sort": "-x" },
+        "x": { "field": "animals_killed_million", "type": "quantitative" },
         "tooltip": [
           { "field": "state", "type": "nominal", "title": "State" },
-          { "field": "year", "type": "ordinal", "title": "Year" },
-          { "field": "animals_killed_million", "type": "quantitative", "title": "Animals Killed (M)", "format": ".1f" }
+          { "field": "animals_killed_million", "type": "quantitative", "title": "Min Killed (M)", "format": ".1f" }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            { "op": "max", "field": "animals_killed_million", "as": "animals_killed_million" }
+          ],
+          "groupby": ["state"]
+        }
+      ],
+      "mark": { "type": "point", "filled": true, "size": 100, "color": "#c0392b" },
+      "encoding": {
+        "y": { "field": "state", "type": "nominal", "sort": "-x" },
+        "x": { "field": "animals_killed_million", "type": "quantitative" },
+        "tooltip": [
+          { "field": "state", "type": "nominal", "title": "State" },
+          { "field": "animals_killed_million", "type": "quantitative", "title": "Max Killed (M)", "format": ".1f" }
         ]
       }
     }
