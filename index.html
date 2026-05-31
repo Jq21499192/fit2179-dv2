@@ -181,6 +181,15 @@
   <div id="chart_dumbbell" style="width:100%;"></div>
 </div>
 
+<div class="chart-card">
+  <h3>Bushfire Area by State: 2009 vs 2019</h3>
+  <p>Lines rising steeply show states where fire damage exploded. NSW and Victoria saw the most dramatic increases.</p>
+  <p class="chart-description">
+    This slope chart compares bushfire-affected area per state between 2009 and 2019. Rising lines indicate states that experienced significantly larger fires during the Black Summer.
+  </p>
+  <div id="chart_slope" style="width:100%;"></div>
+</div>
+
 </section>
 
 <footer>
@@ -201,6 +210,7 @@
   vegaEmbed("#chart_cause", "js/chart9_cause.json", {actions: false});
   vegaEmbed("#chart_lollipop", "js/chart10_lollipop.json", {actions: false});
   vegaEmbed("#chart_dumbbell", "js/chart11_dumbbell.json", {actions: false});
+  vegaEmbed("#chart_slope", "js/chart12_slope.json", {actions: false});
 </script>
 
 </body>
