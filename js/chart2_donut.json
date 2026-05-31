@@ -1,18 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": {
-    "text": "Distribution of threatened species by conservation status.",
-    "color": "#f39c12",
-    "subtitle": "Hover over a segment to highlight it.",
-    "subtitleColor": "#aab7b8",
-    "fontSize": 20,
-    "subtitleFontSize": 13,
-    "anchor": "start"
-  },
-
-  "width": 520,
-  "height": 330,
+  
+  "width": 620,
+  "height": 360,
   "background": "#1a2a3a",
 
   "data": {
@@ -54,8 +45,8 @@
     {
       "mark": {
         "type": "arc",
-        "innerRadius": 75,
-        "outerRadius": 140,
+        "innerRadius": 80,
+        "outerRadius": 145,
         "stroke": "#1a2a3a",
         "strokeWidth": 2
       },
@@ -97,9 +88,10 @@
             "orient": "right",
             "labelColor": "#e8e0d0",
             "titleColor": "#f39c12",
-            "labelFontSize": 11,
-            "titleFontSize": 12,
-            "symbolSize": 120
+            "labelFontSize": 22,
+            "titleFontSize": 18,
+            "symbolSize": 260,
+            "padding":10
           }
         },
 
@@ -129,8 +121,8 @@
     {
       "mark": {
         "type": "text",
-        "radius": 112,
-        "fontSize": 12,
+        "radius": 114,
+        "fontSize": 15,
         "fontWeight": "bold",
         "fill": "#ffffff"
       },
