@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Wildlife Casualties: 2009 vs 2019 by State",
-    "subtitle": "Comparing animal deaths between two major fire years",
+    "subtitle": "Min vs Max animal deaths across all recorded bushfires",
     "color": "#f39c12",
     "subtitleColor": "#bdc3c7",
     "fontSize": 16,
@@ -12,7 +12,18 @@
   "height": 350,
   "data": { "url": "data/bushfire.csv" },
   "transform": [
-    { "filter": "datum.year == 2009 || datum.year == 2019" }
+    {
+      "aggregate": [
+        { "op": "min", "field": "animals_killed_million", "as": "min_animals" },
+        { "op": "max", "field": "animals_killed_million", "as": "max_animals" }
+      ],
+      "groupby": ["state"]
+    },
+    { "fold": ["min_animals", "max_animals"], "as": ["type", "value"] },
+    {
+      "calculate": "datum.type === 'min_animals' ? 'Smallest Fire' : 'Largest Fire'",
+      "as": "fire_type"
+    }
   ],
   "layer": [
     {
@@ -21,7 +32,7 @@
         "y": {
           "field": "state",
           "type": "nominal",
-          "sort": { "field": "animals_killed_million", "order": "descending" }
+          "sort": "-x"
         },
         "x": {
           "field": "animals_killed_million",
