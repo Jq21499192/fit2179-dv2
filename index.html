@@ -173,12 +173,12 @@
 </div>
 
 <div class="chart-card">
-  <h3>Total Wildlife Casualties by State</h3>
-  <p>NSW and Victoria suffered the greatest wildlife losses due to the scale of their bushfires.</p>
+  <h3>Distribution of Wildlife Casualties by State</h3>
+  <p>NSW shows extreme outliers due to the 2019 Black Summer — most other states had far smaller losses.</p>
   <p class="chart-description">
-    This horizontal bar chart aggregates estimated animal deaths across all recorded bushfires per state, revealing which regions bear the heaviest wildlife toll.
+    This box plot shows the spread of estimated wildlife casualties across all recorded bushfires for each state. The box represents the middle range of values, while lines extend to the minimum and maximum.
   </p>
-  <div id="chart_state_deaths" style="width:100%;"></div>
+  <div id="chart_boxplot" style="width:100%;"></div>
 </div>
 
 </section>
@@ -200,7 +200,7 @@
   vegaEmbed("#chart_scatter", "js/chart8_scatter.json", {actions: false});
   vegaEmbed("#chart_cause", "js/chart9_cause.json", {actions: false});
   vegaEmbed("#chart_lollipop", "js/chart10_lollipop.json", {actions: false});
-  vegaEmbed("#chart_state_deaths", "js/chart11_state_deaths.json", {actions: false});
+  vegaEmbed("#chart_boxplot", "js/chart11_boxplot.json", {actions: false});
 </script>
 
 </body>

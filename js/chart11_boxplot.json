@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Distribution of Wildlife Casualties by State",
+    "subtitle": "Each box shows the spread of animal deaths across recorded bushfires",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 400,
+  "data": { "url": "data/bushfire.csv" },
+  "mark": {
+    "type": "boxplot",
+    "extent": "min-max",
+    "box": { "fill": "#e67e22", "stroke": "#f39c12" },
+    "rule": { "stroke": "#bdc3c7" },
+    "outliers": { "color": "#c0392b", "size": 60 },
+    "median": { "stroke": "#f39c12", "strokeWidth": 2 }
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null,
+      "axis": { "labelColor": "#e8e0d0", "labelFontSize": 12 }
+    },
+    "x": {
+      "field": "animals_killed_million",
+      "type": "quantitative",
+      "title": "Animals Killed (millions)",
+      "axis": {
+        "labelColor": "#bdc3c7",
+        "titleColor": "#bdc3c7",
+        "gridColor": "#2c3e50"
+      }
+    },
+    "tooltip": [
+      { "field": "state", "type": "nominal", "title": "State" },
+      { "field": "animals_killed_million", "type": "quantitative", "title": "Animals Killed (M)", "format": ".1f" }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "view": { "stroke": "transparent" }
+  }
+}
