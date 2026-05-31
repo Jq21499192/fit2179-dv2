@@ -173,12 +173,12 @@
 </div>
 
 <div class="chart-card">
-  <h3>Distribution of Wildlife Casualties by State</h3>
-  <p>NSW shows extreme outliers due to the 2019 Black Summer — most other states had far smaller losses.</p>
+  <h3>Wildlife Casualties: 2009 vs 2019</h3>
+  <p>Red dots show 2019 figures — NSW's jump is dramatic compared to 2009.</p>
   <p class="chart-description">
-    This box plot shows the spread of estimated wildlife casualties across all recorded bushfires for each state. The box represents the middle range of values, while lines extend to the minimum and maximum.
+    This dumbbell chart compares estimated wildlife casualties per state between the 2009 and 2019 fire years. The gap between dots shows how much worse conditions became for wildlife during the Black Summer.
   </p>
-  <div id="chart_boxplot" style="width:100%;"></div>
+  <div id="chart_dumbbell" style="width:100%;"></div>
 </div>
 
 </section>
@@ -200,7 +200,7 @@
   vegaEmbed("#chart_scatter", "js/chart8_scatter.json", {actions: false});
   vegaEmbed("#chart_cause", "js/chart9_cause.json", {actions: false});
   vegaEmbed("#chart_lollipop", "js/chart10_lollipop.json", {actions: false});
-  vegaEmbed("#chart_boxplot", "js/chart11_boxplot.json", {actions: false});
+  vegaEmbed("#chart_dumbbell", "js/chart11_dumbbell.json", {actions: false});
 </script>
 
 </body>

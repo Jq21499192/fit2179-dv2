@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Wildlife Casualties: 2009 vs 2019 by State",
+    "subtitle": "Comparing animal deaths between two major fire years",
+    "color": "#f39c12",
+    "subtitleColor": "#bdc3c7",
+    "fontSize": 16,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 350,
+  "data": { "url": "data/bushfire.csv" },
+  "transform": [
+    { "filter": "datum.year == 2009 || datum.year == 2019" }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "line", "strokeWidth": 3, "color": "#bdc3c7", "opacity": 0.5 },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": { "field": "animals_killed_million", "order": "descending" }
+        },
+        "x": {
+          "field": "animals_killed_million",
+          "type": "quantitative"
+        },
+        "detail": { "field": "state", "type": "nominal" }
+      }
+    },
+    {
+      "mark": { "type": "point", "filled": true, "size": 120, "strokeWidth": 0 },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": { "field": "animals_killed_million", "order": "descending" },
+          "title": null,
+          "axis": { "labelColor": "#e8e0d0", "labelFontSize": 12 }
+        },
+        "x": {
+          "field": "animals_killed_million",
+          "type": "quantitative",
+          "title": "Animals Killed (millions)",
+          "axis": {
+            "labelColor": "#bdc3c7",
+            "titleColor": "#bdc3c7",
+            "gridColor": "#2c3e50"
+          }
+        },
+        "color": {
+          "field": "year",
+          "type": "nominal",
+          "scale": {
+            "domain": [2009, 2019],
+            "range": ["#2980b9", "#c0392b"]
+          },
+          "legend": {
+            "title": "Year",
+            "labelColor": "#e8e0d0",
+            "titleColor": "#bdc3c7"
+          }
+        },
+        "tooltip": [
+          { "field": "state", "type": "nominal", "title": "State" },
+          { "field": "year", "type": "ordinal", "title": "Year" },
+          { "field": "animals_killed_million", "type": "quantitative", "title": "Animals Killed (M)", "format": ".1f" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "view": { "stroke": "transparent" }
+  }
+}
