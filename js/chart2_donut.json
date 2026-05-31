@@ -1,8 +1,19 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
+  "title": {
+    "text": "Conservation Status Breakdown",
+    "subtitle": "Hover over a segment to highlight it.",
+    "color": "#f39c12",
+    "subtitleColor": "#aab7b8",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "anchor": "start"
+  },
+
   "width": 520,
   "height": 330,
+  "background": "#1a2a3a",
 
   "data": {
     "url": "data/threatened_species.csv"
@@ -30,6 +41,22 @@
     {
       "calculate": "datum.species_count / datum.total_count",
       "as": "percentage"
+    },
+    {
+      "calculate": "datum.status == 'Critically Endangered' ? 1 : datum.status == 'Endangered' ? 2 : datum.status == 'Vulnerable' ? 3 : datum.status == 'Near Threatened' ? 4 : 5",
+      "as": "status_order"
+    }
+  ],
+
+  "params": [
+    {
+      "name": "hover_status",
+      "select": {
+        "type": "point",
+        "fields": ["status"],
+        "on": "mouseover",
+        "clear": "mouseout"
+      }
     }
   ],
 
@@ -46,6 +73,12 @@
       "encoding": {
         "theta": {
           "field": "species_count",
+          "type": "quantitative",
+          "stack": true
+        },
+
+        "order": {
+          "field": "status_order",
           "type": "quantitative"
         },
 
@@ -53,7 +86,6 @@
           "field": "status",
           "type": "nominal",
           "title": "Conservation Status",
-
           "scale": {
             "domain": [
               "Critically Endangered",
@@ -70,7 +102,6 @@
               "#8e44ad"
             ]
           },
-
           "legend": {
             "orient": "right",
             "labelColor": "#e8e0d0",
@@ -79,6 +110,14 @@
             "titleFontSize": 12,
             "symbolSize": 120
           }
+        },
+
+        "opacity": {
+          "condition": {
+            "param": "hover_status",
+            "value": 1
+          },
+          "value": 0.75
         },
 
         "tooltip": [
@@ -105,15 +144,21 @@
     {
       "mark": {
         "type": "text",
-        "radius": 110,
+        "radius": 112,
         "fontSize": 12,
         "fontWeight": "bold",
-        "fill": "#0d1b2a"
+        "fill": "#ffffff"
       },
 
       "encoding": {
         "theta": {
           "field": "species_count",
+          "type": "quantitative",
+          "stack": true
+        },
+
+        "order": {
+          "field": "status_order",
           "type": "quantitative"
         },
 
@@ -126,9 +171,9 @@
   ],
 
   "config": {
-    "background": "#1a2a3a",
     "view": {
       "stroke": null
-    }
+    },
+    "font": "Georgia"
   }
 }
